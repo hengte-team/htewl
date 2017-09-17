@@ -11,7 +11,7 @@
 <div class="user-content widthMax">
 
 </div>
-<div class="user-foot">
+<footer class="user-foot">
     <ul class="flex">
         <li class="active">
             <a href="http://m.bzezt.com/">
@@ -38,5 +38,5 @@
             </a>
         </li>
     </ul>
-</div>
+</footer>
 <?php $this->load->view('layout/footer');?>

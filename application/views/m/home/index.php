@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header');?>
-<div class="user-head">
+<header class="user-head">
 	<ul class="flex">
 		<li>
 			<a href="<?php echo site_url('m/home/index') ?>">
@@ -20,7 +20,7 @@
 			</a>
 		</li>
 	</ul>
-</div>
+</header>
 <div class="user-content widthMax">
 	<a href="http://m.bzezt.com/">
 		<img src="http://www.morginan.com/data/attachment/portal/201704/06/085712i7n7tfggemnoxncu.jpg" />
@@ -35,7 +35,7 @@
 		<img src="http://www.morginan.com/data/attachment/portal/201704/06/085712i7n7tfggemnoxncu.jpg" />
 	</a>
 </div>
-<div class="user-foot">
+<footer class="user-foot">
 	<ul class="flex">
 		<li class="active">
 			<a href="http://m.bzezt.com/">
@@ -62,5 +62,5 @@
 			</a>
 		</li>
 	</ul>
-</div>
+</footer>
 <?php $this->load->view('layout/footer');?>
