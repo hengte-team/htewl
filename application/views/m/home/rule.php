@@ -5,7 +5,7 @@
             <i class="iconfont icon-fanhui"></i>
         </a>
     </div>
-    <div class="title am-fl">消费保障</div>
+    <div class="title am-fl">规则说明</div>
     <div class="more am-fl"></div>
 </header>
 <div class="user-content widthMax">
