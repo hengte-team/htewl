@@ -20,13 +20,36 @@
 <title><?php echo isset($headTittle) ? $headTittle : '抢红包不跑单';?></title>
 <base href="<?php echo $this->config->skins_url;?>"/>
 <link type="image/x-icon" rel="shortcut icon" href="htewl/m/images/logo.png"/>
+<?php css('htewl/m', 'amazeui.min', 20161205);?>
 <?php css('htewl/m', 'reset', 20161205);?>
 <?php css('htewl/m', 'style', 20161205);?>
 
-<?php js('htewl/m', 'jquery-1.10.2');?>
+<?php js('htewl/m', 'jquery-2.1.4.min');?>
 <?php js('htewl/m', 'layer/layer');?>
 <?php js('htewl/m', 'jquery.lazyload.min');?>
 <?php js('htewl/m', 'jquery.validate.min');?>
 <?php js('htewl/m', 'jquery.validate.messages_zh');?>
 </head>
 <body>
+<div class="user-head">
+    <ul class="flex">
+        <li>
+            <a href="http://m.bzezt.com/">
+                <i class="iconfont icon-qian"></i>
+                <p>0.00</p>
+            </a>
+        </li>
+        <li>
+            <a href="http://m.bzezt.com/home/discountMall/protection.html">
+                <i class="iconfont icon-duihuan"></i>
+                <p>兑换</p>
+            </a>
+        </li>
+        <li>
+            <a href="http://m.bzezt.com/tourism/tourismcart.html">
+                <i class="iconfont icon-guize"></i>
+                <p>规则</p>
+            </a>
+        </li>
+    </ul>
+</div>
