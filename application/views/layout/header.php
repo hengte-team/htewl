@@ -31,25 +31,3 @@
 <?php js('htewl/m', 'jquery.validate.messages_zh');?>
 </head>
 <body>
-<div class="user-head">
-    <ul class="flex">
-        <li>
-            <a href="http://m.bzezt.com/">
-                <i class="iconfont icon-qian"></i>
-                <p>0.00</p>
-            </a>
-        </li>
-        <li>
-            <a href="http://m.bzezt.com/home/discountMall/protection.html">
-                <i class="iconfont icon-duihuan"></i>
-                <p>兑换</p>
-            </a>
-        </li>
-        <li>
-            <a href="http://m.bzezt.com/tourism/tourismcart.html">
-                <i class="iconfont icon-guize"></i>
-                <p>规则</p>
-            </a>
-        </li>
-    </ul>
-</div>
