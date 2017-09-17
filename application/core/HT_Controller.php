@@ -27,39 +27,21 @@ class HT_Controller extends CI_Controller
         }
         $this->_init(); //用着重载
         
-        $this->checkBroswer(); // 检查浏览器内容
+        //$this->checkBroswer(); // 检查浏览器内容
         // 开发模式下开启性能分析
         if (ENVIRONMENT === 'development') {
-            //$this->output->enable_profiler(TRUE);
+            $this->output->enable_profiler(TRUE);
         }
     }
     
     public function _init() {}
     
-    private function checkBroswer() {
-    	 
+    private function checkBroswer()
+    {
     	$this->load->library('user_agent');
     	if (!$this->agent->is_mobile()) {
     		redirect($this->config->main_base_url);
     	}
-    }
-    
-    /**
-     * 存储错误信息
-     * @param unknown $message
-     */
-    public function setErrorMessage($message)
-    {
-        $this->errorMessage[] = $message;
-    }
-    
-    /**
-     * 获取错误信息
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        return $this->errorMessage;
     }
     
     /**
@@ -427,24 +409,6 @@ class HT_Controller extends CI_Controller
     }
     
     /**
-     * 错误回跳到首页
-     * @param unknown $msg
-     */
-    protected function alertError($msg)
-    {
-        echo '<script type="text/javascript">alert("'.$msg.'");location.href="'.base_url().'"</script>';exit;
-    }
-    
-    /**
-     * 错误回跳到首页
-     * @param unknown $msg
-     */
-    protected function alertJumpPre($msg)
-    {
-        echo '<script type="text/javascript">alert("'.$msg.'");location.href="Javascript:window.history.go(-1)"</script>';exit;
-    }
-    
-    /**
      * 分页get参数
      * @param unknown $getParam
      */
@@ -461,7 +425,7 @@ class HT_Controller extends CI_Controller
     public function getCaptcha($font_size=20, $img_width=100, $img_height=30, $count=4)
     {
     	$this->load->helper('captcha');
-    	$str = 'abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUXWXYZ123456789';
+    	$str = 'abcdefghgkmnpqrstuvwxyzABCDEFGHIJKMNPQRSTUXWXYZ23456789';
     	$word = '';
     	for ($i=0; $i < $count; $i++) {
     		$word .= $str[mt_rand(0,strlen($str)-1)];
@@ -493,20 +457,17 @@ class HT_Controller extends CI_Controller
     public function fn_get_contents( $url, $keysArr = array(), $mothod = 'get', $is_header = 1, $flag = 0 )
     {
     	$ch = curl_init() ;
-    	if ( !$flag )
-    	{
+    	if (!$flag) {
     		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false ) ;
     	}
     	curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, FALSE ) ;
     	curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, FALSE ) ;
     
     	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true ) ;
-    	if ( strtolower( $mothod ) == 'post' )
-    	{
+    	if (strtolower( $mothod ) == 'post') {
     		curl_setopt( $ch, CURLOPT_POST, true ) ;
     		curl_setopt( $ch, CURLOPT_POSTFIELDS, $keysArr ) ;
-    	} else
-    	{
+    	} else {
     		$url = $url . "?" . http_build_query( $keysArr ) ;
     	}
     	curl_setopt( $ch, CURLOPT_URL, $url ) ;
@@ -553,20 +514,6 @@ class HT_Controller extends CI_Controller
             $this->image_lib->clear();
         }
         return $imagesName;
-    }
-    
-    /**
-     * jsen输出
-     * @param unknown $message
-     * @param string $status
-     */
-    public function jsen($message,$status=false) {
-    
-    	$data = array(
-        		'message' => $message,
-        		'status'  => $status
-        	);
-    	echo json_encode($data);exit;
     }
     
     /**

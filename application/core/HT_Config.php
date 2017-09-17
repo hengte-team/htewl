@@ -1,13 +1,12 @@
 <?php
 class HT_Config extends CI_Config
 {
-    public $main_base_url  =  'http://www.miaocw.com/';
-	public $images_url     =  'http://images.miaocw.com/';
-    public $skins_url      =  'http://skins.miaocw.com/';  
-    public $passport_url   =  'http://passport.miaocw.com/';
-    public $help_url       =  'http://help.miaocw.com/';
-    public $ucenter_url    =  'http://ucenter.miaocw.com/';
-    public $api_url        =  'http://api.miaocw.com/';
+    public $main_base_url  =  'http://www.htewl.com/';
+	public $images_url     =  'http://images.htewl.com/';
+    public $skins_url      =  'http://skins.htewl.com/';
+    public $passport_url   =  'http://passport.htewl.com/';
+    public $help_url       =  'http://help.htewl.com/';
+    public $ucenter_url    =  'http://ucenter.htewl.com/';
 
     
      /**
@@ -18,9 +17,9 @@ class HT_Config extends CI_Config
     public function upload_image_path($dirname, $imageName = '')
     {
         if (!empty($imageName)) {
-            return dirname(FCPATH).'/images.miaocw.com/'.$dirname.'/'.$imageName;
+            return dirname(FCPATH).'/images.htewl.com/'.$dirname.'/'.$imageName;
         }
-        return dirname(FCPATH).'/images.miaocw.com/'.$dirname.'/';
+        return dirname(FCPATH).'/images.htewl.com/'.$dirname.'/';
     }
     
     /**
@@ -45,9 +44,9 @@ class HT_Config extends CI_Config
     {
         if (!empty($imageName)) {
             $imageName = $this->get_thumb_image_name($imageName);
-            return dirname(FCPATH).'/images.miaocw.com/'.$dirname.'/'.$imageName;
+            return dirname(FCPATH).'/images.htewl.com/'.$dirname.'/'.$imageName;
         }
-        return dirname(FCPATH).'/images.miaocw.com/'.$dirname.'/';
+        return dirname(FCPATH).'/images.htewl.com/'.$dirname.'/';
     }
     
     /**

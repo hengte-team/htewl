@@ -17,7 +17,7 @@
 <meta name="x5-fullscreen" content="true">
 <meta name="browsermode" content="application">
 <meta name="x5-page-mode" content="app">
-<title><?php echo isset($headTittle) ? $headTittle.',妙处网,妙处,妙,处,性用品,性保健品,正品成人用品网站' : '妙处网,妙处,妙,处,性用品,性保健品,正品成人用品网站';?></title> 
+<title><?php echo isset($headTittle) ? $headTittle : '抢红包不跑单';?></title>
 <base href="<?php echo $this->config->skins_url;?>"/>
 <link type="image/x-icon" rel="shortcut icon" href="htewl/m/images/logo.png"/>
 <?php css('htewl/m', 'reset', 20161205);?>

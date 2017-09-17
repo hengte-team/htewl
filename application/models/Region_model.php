@@ -2,9 +2,9 @@
 class Region_model extends CI_Model
 {
     private $table = 'region';
-    public function findById($id)
+    public function findById($region_id)
     {
-        $this->db->where('region_id', $id);
+        $this->db->where('region_id', $region_id);
         return $this->db->get($this->table);
     }
     
@@ -145,5 +145,4 @@ class Region_model extends CI_Model
         $this->db->limit(20, $num);
         return $this->db->get($this->table);
     }
-    
 }
