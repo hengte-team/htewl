@@ -56,7 +56,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="http://m.bzezt.com/home/ucenter/index.html">
+			<a href="<?php echo site_url('m/personal/index') ?>">
 				<i class="iconfont icon-wode"></i>
 				<p>我的</p>
 			</a>
