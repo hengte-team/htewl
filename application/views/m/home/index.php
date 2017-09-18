@@ -1,8 +1,8 @@
-<?php $this->load->view('layout/header');?>
+<?php $this->load->view('m/layout/header');?>
 <header class="user-head">
 	<ul class="flex">
 		<li>
-			<a href="<?php echo site_url('m/home/index') ?>">
+			<a href="<?php echo site_url('m/account/index') ?>">
 				<i class="iconfont icon-qian"></i>
 				<p>0.00</p>
 			</a>
@@ -63,4 +63,4 @@
 		</li>
 	</ul>
 </footer>
-<?php $this->load->view('layout/footer');?>
+<?php $this->load->view('m/layout/footer');?>

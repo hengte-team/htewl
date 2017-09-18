@@ -1,4 +1,4 @@
-<?php $this->load->view('layout/header');?>
+<?php $this->load->view('m/layout/header');?>
 <header class="process-header am-cf">
     <div class="return am-fl">
         <a href="javascript:history.back();">
@@ -39,4 +39,4 @@
         </li>
     </ul>
 </footer>
-<?php $this->load->view('layout/footer');?>
+<?php $this->load->view('m/layout/footer');?>
