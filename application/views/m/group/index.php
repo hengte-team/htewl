@@ -1,19 +1,8 @@
-<?php $this->load->view('m/layout/header');?>
-<header class="process-header am-cf">
-    <div class="return am-fl">
-        <a href="javascript:history.back();">
-            <i class="iconfont icon-fanhui"></i>
-        </a>
-    </div>
-    <div class="title am-fl">规则说明</div>
-    <div class="more am-fl"></div>
-</header>
-<div class="user-content widthMax">
-
-</div>
+<?php $this->load->view('m/layout/header') ?>
+组群
 <footer class="user-foot">
     <ul class="flex">
-        <li class="active">
+        <li>
             <a href="<?php echo site_url('m/home/index') ?>">
                 <i class="iconfont icon-shouye"></i>
                 <p>首页</p>
@@ -25,7 +14,7 @@
                 <p>充钻</p>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a href="<?php echo site_url('m/group/index') ?>">
                 <i class="iconfont icon-qunzu"></i>
                 <p>组群</p>
@@ -39,4 +28,4 @@
         </li>
     </ul>
 </footer>
-<?php $this->load->view('m/layout/footer');?>
+<?php $this->load->view('m/layout/footer'); ?>

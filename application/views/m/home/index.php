@@ -38,19 +38,19 @@
 <footer class="user-foot">
 	<ul class="flex">
 		<li class="active">
-			<a href="http://m.bzezt.com/">
+			<a href="<?php echo site_url('m/home/index') ?>">
 				<i class="iconfont icon-shouye"></i>
 				<p>首页</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://m.bzezt.com/home/discountMall/protection.html">
+			<a href="<?php echo site_url('m/account/deposit') ?>">
 				<i class="iconfont icon-chongzhi"></i>
 				<p>充钻</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://m.bzezt.com/tourism/tourismcart.html">
+			<a href="<?php echo site_url('m/group/index') ?>">
 				<i class="iconfont icon-qunzu"></i>
 				<p>组群</p>
 			</a>

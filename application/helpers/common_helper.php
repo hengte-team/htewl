@@ -105,3 +105,33 @@ function user_photo()
     );
 }
 
+ //验证是不是微信5.0 版本
+ function validateWeiXin(){
+
+	 $weiXinStatus  =  false;
+	 if (strpos($_SERVER['HTTP_USER_AGENT'], "MicroMessenger") !== false ) {
+		 $weiXinStatus = true;
+	 }
+	 return $weiXinStatus;
+ }
+
+ //验证是否是支付宝
+ function validateAliapp()
+ {
+	 return strpos($_SERVER['HTTP_USER_AGENT'], "Alipay");
+ }
+
+ //过滤微信表情
+ function filterEmoji($str)
+ {
+	 $str = preg_replace_callback(
+		 '/./u',
+		 function ($match) {
+			 return strlen($match[0]) >= 4 ? '' : $match[0];
+		 },
+		 $str
+	 );
+
+	 return $str;
+ }
+

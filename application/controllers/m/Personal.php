@@ -15,4 +15,10 @@ class Personal extends HT_Controller
         $data['userAccount'] = $result->row(0);
         $this->load->view('m/personal/index', $data);
     }
+
+    public function setting()
+    {
+        $data = array();
+        $this->load->view('m/personal/setting', $data);
+    }
 }
