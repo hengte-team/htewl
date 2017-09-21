@@ -1,4 +1,13 @@
 <?php $this->load->view('m/layout/header') ?>
+<header class="process-header am-cf">
+    <div class="return am-fl">
+        <a href="javascript:history.back();">
+            <i class="iconfont icon-fanhui"></i>
+        </a>
+    </div>
+    <div class="title am-fl">组群</div>
+    <div class="more am-fl"></div>
+</header>
 组群
 <footer class="user-foot">
     <ul class="flex">

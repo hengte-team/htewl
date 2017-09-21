@@ -45,14 +45,13 @@
 			<button type="button" id="withdraw-button" >确认转出</button>
 		</div>
 	</section>
-
 	<div class="alert-pay am-modal" tabindex="-1" id="payment-password">
 	  	<h4 class="flex">
 	  		<p class="flex-1">请输入密码</p>
-	  		<a href="<?php echo site_url('home/safetycenter/selectLoginStrategy'); ?>">忘记密码</a>
+	  		<a href="<?php echo site_url('m/safetycenter/selectLoginStrategy'); ?>">忘记密码</a>
 	  	</h4>
 	  	<div class="alert-text">
-	  		<input type="password" name="payment_password" placeholder="请输入登录密码">
+	  		<input type="password" name="payment_password" placeholder="请输入支付密码">
 	  		<div class="alert-close flex">
 	  			<div class="alert-lefe">
 	  				<a href="javascript: void(0)" data-am-modal-close>取消</a>
