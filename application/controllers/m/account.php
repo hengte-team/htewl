@@ -11,6 +11,7 @@ class Account extends HT_Controller
 		$this->load->model('user_model', 'user');
 		$this->load->model('account_log_model', 'account_log');
 		//$this->load->model('deposit_model', 'deposit');
+		$this->load->model('user_bank_model', 'user_bank');
 	}
 
 	/*
@@ -155,14 +156,13 @@ class Account extends HT_Controller
 	 */
 	public function withdraw()
 	{
-		$userBank = $this->user_bank->findByUid($this->uid);
-		if ( $userBank->num_rows() == 0 )
-		{
-			$this->redirect('home/card/bankCard');//请先绑定银行卡
-		}
-		$data['userBank'] = $userBank->result();
-		$data['userAccount'] = $this->user_account->findByUid($this->uid)->row();
-		$this->load->view('home/account/withdraw', $data);
+//		$userBank = $this->user_bank->findByUid($this->uid);
+//		if ($userBank->num_rows() == 0) {
+//			$this->redirect('home/card/bankCard');//请先绑定银行卡
+//		}
+//		$data['userBank'] = $userBank->result();
+//		$data['userAccount'] = $this->user_account->findByUid($this->uid)->row();
+		$this->load->view('m/account/withdraw', $data=array());
 	}
 
 	/**
