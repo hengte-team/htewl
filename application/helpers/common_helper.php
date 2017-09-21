@@ -106,10 +106,10 @@ function user_photo()
 }
 
  //验证是不是微信5.0 版本
- function validateWeiXin(){
-
+ function validateWeiXin()
+ {
 	 $weiXinStatus  =  false;
-	 if (strpos($_SERVER['HTTP_USER_AGENT'], "MicroMessenger") !== false ) {
+	 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
 		 $weiXinStatus = true;
 	 }
 	 return $weiXinStatus;
@@ -118,7 +118,7 @@ function user_photo()
  //验证是否是支付宝
  function validateAliapp()
  {
-	 return strpos($_SERVER['HTTP_USER_AGENT'], "Alipay");
+	 return strpos($_SERVER['HTTP_USER_AGENT'], 'Alipay');
  }
 
  //过滤微信表情

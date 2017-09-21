@@ -1,15 +1,13 @@
-<?php $this->load->view('home/layout/header') ?>
-<header class="my-head flex">
-	<div class="my-return">
-		<a href="javascript:history.go(-1);">
-			<i class="iconfont">&#xe624;</i>
+<?php $this->load->view('m/layout/header') ?>
+<header class="process-header am-cf">
+	<div class="return am-fl">
+		<a href="javascript:history.back();">
+			<i class="iconfont icon-fanhui"></i>
 		</a>
 	</div>
-	<div class="add-name">
-		提现
-	</div>
-	<div class="add-submit">
-		<a href="<?php echo site_url('home/account/withdrawRecord'); ?>">
+	<div class="title am-fl">提现</div>
+	<div class="more am-fl">
+		<a href="<?php echo site_url('m/account/withdrawRecord'); ?>">
 			提现记录
 		</a>
 	</div>
@@ -91,4 +89,4 @@
 	</a>
 </div>
 <?php endif; ?>
-<?php $this->load->view('home/layout/footer'); ?>
+<?php $this->load->view('m/layout/footer'); ?>

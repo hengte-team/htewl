@@ -8,7 +8,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="http://m.bzezt.com/home/discountMall/protection.html">
+			<a href="<?php echo site_url('m/account/withdraw') ?>">
 				<i class="iconfont icon-duihuan"></i>
 				<p>兑换</p>
 			</a>
