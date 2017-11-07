@@ -7,10 +7,10 @@ class Account extends HT_Controller
 	public function _init()
 	{
 		$this->load->helper(array('common', 'valid'));
-		//$this->load->library('alipay/alipaypc', null, 'alipaypc');
+		//$this->load->library('alipay/alipaywap', null, 'alipaywap');
 		$this->load->model('user_model', 'user');
 		$this->load->model('account_log_model', 'account_log');
-		//$this->load->model('deposit_model', 'deposit');
+		$this->load->model('deposit_model', 'deposit');
 		$this->load->model('user_bank_model', 'user_bank');
 	}
 
@@ -45,14 +45,12 @@ class Account extends HT_Controller
 		$postData['uid'] = $this->uid;
 		$userAccount = $this->user_account->findByUid($this->uid)->row();
 		$postData['amount_carry'] = $userAccount->amount_carry;
-		$insertId = $this->deposit->insertDeposit($postData);
-		if ($insertId)
-		{
-			switch ($postData['pay_bank'])
-			{
+		$insertId = $this->deposit->insert($postData);
+		if ($insertId) {
+			switch ($postData['pay_bank']) {
 				case '1':      //支付宝支付
 	                $alipayParameter = $this->depositAlipayParameter($insertId, $postData['amount']);
-	                $this->alipaypc->callAlipayApi($alipayParameter);
+	                $this->alipaywap->callAlipayApi($alipayParameter);
 	                break;
 	            case '201':    //微信支付
                     echo $insertId;
@@ -60,23 +58,21 @@ class Account extends HT_Controller
 	                header("Location:$url");
 	                break;
 	            default :  //支付出现问题
-	                $this->redirect('home/account/fail');
+	                $this->redirect('m/account/fail');
 	                break;
         	}
-		}
-		else
-		{
-			$this->load->view('home/account/fail');
+		} else {
+			$this->load->view('m/account/fail');
 		}
 	}
 
 	/**
 	 * 充值  支付宝
 	 */
-	private function depositAlipayParameter($id, $amount)
+	private function depositAlipayParameter($depositId, $amount)
     {
         $parameter = array(
-            'out_trade_no' =>  $id,
+            'out_trade_no' =>  $depositId,
             'subject'      =>  '贝竹余额充值',
             'total_fee'    =>  $amount,
             'body'         =>  '贝竹余额充值',
@@ -94,22 +90,17 @@ class Account extends HT_Controller
 	 */
 	private function _validateDeposit($postData)
 	{
-		if ( $postData['amount'] <= 0 || ! validateFloatNumber($postData['amount']) )
-		{
-			$this->error('home/account/deposit', '', '请输入有效的金额');
+		if ( $postData['amount'] <= 0 || ! validateFloatNumber($postData['amount']) ) {
+			$this->error('m/account/deposit', '', '请输入有效的金额');
 		}
 
-		if ( $postData['amount'] >= 1000000 )
-		{
-			$this->error('home/account/deposit', '', '充值金额超出规定范围');
+		if ( $postData['amount'] >= 1000000 ) {
+			$this->error('m/account/deposit', '', '充值金额超出规定范围');
 		}
 
-
-		if ( empty($postData['pay_bank']) )
-		{
-			$this->error('home/account/deposit', '', '请选择银行并填写银行卡号');
+		if (empty($postData['pay_bank'])) {
+			$this->error('m/account/deposit', '', '请选择银行并填写银行卡号');
 		}
-
 		return TRUE;
 	}
 

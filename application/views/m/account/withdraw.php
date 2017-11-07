@@ -27,13 +27,13 @@
 		<dl class="full-payoff">
 			<dt>请选择银行卡</dt>
 			<dd class="flex" data-am-modal="{target: '#bank-list'}">
-				<img id="bank-img" src="<?php echo 'images/bank68/bank-', $userBank[0]->bank_id, '.png'; ?>">
+				<img id="bank-img" src="<?php echo 'htewl/m/images/bank68/bank-1.png'; ?>">
 				<div class="flex flex-1">
 					<div class="payoff-text flex-1">
 						<h5 id="bank-name"><?php echo $userBank[0]->bank_name ?></h5>
 						<p id="tail-number">尾号<?php echo substr($userBank[0]->bank_card, -4); ?></p>
 					</div>
-					<i class="cash-icon iconfont">&#xe611;</i>
+					<i class="cash-icon icon-youjiantou iconfont"></i>
 				</div>
 			</dd>
 		</dl>
@@ -54,7 +54,7 @@
 	  		<input type="password" name="payment_password" placeholder="请输入支付密码">
 	  		<div class="alert-close flex">
 	  			<div class="alert-lefe">
-	  				<a href="javascript: void(0)" data-am-modal-close>取消</a>
+	  				<a href="javascript:void(0)" data-am-modal-close>取消</a>
 	  			</div>
 	  			<div class="alert-right">
 	  				 <button type="button" id="payment-password-button" >确认转出</button>
