@@ -1,19 +1,18 @@
 <?php
-class Deposit_model extends CI_Model
+class User_deposit_model extends CI_Model
 {
-	private $_table = 'deposit';
+	private $_table = 'user_deposit';
 
-	public function insert($postData = array())
+	public function insert($params = array())
 	{
 		$data = array(
-			'uid'  		     => $postData['uid'],
-			'amount' 	     => $postData['amount'],
-			'amount_carry' => 0,
-			'bank_id' 	     => 0,
-			'state'		 => 1,					//1表示未付
-			'is_from' 	     => 1, 					//1表示pc端
-			'created_at'   => date('Y-m-d H:i:s'),
-			'updated_at'   => '0000-00-00 00:00:00'
+			'uid'             => $params['uid'],
+			'amount'         => $params['amount'],
+			'amount_carry'  => $params['amount_carry'],
+			'bank_id'        => $params['bank_id'],
+			'state'          => 1,
+			'created_at'    => date('Y-m-d H:i:s'),
+			'updated_at'    => date('Y-m-d H:i:s')
 		);
 		$this->db->insert($this->_table, $data);
 		return $this->db->insert_id();

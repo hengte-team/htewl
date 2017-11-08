@@ -14,7 +14,7 @@ class User_model extends CI_Model
      * 更新用户表信息
      * @param unknown $postData
      */
-    public function updateUser($postData = array())
+    public function update($postData = array())
     {
         if (!empty($postData['flag'])) {
             $data['flag'] = $postData['flag'];
