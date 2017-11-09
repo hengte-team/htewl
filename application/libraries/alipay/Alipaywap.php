@@ -27,8 +27,9 @@ class Alipaywap
         require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'config.php';
         require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'wappay/service/AlipayTradeService.php';
         $alipaySevice = new AlipayTradeService($config);
-        $alipaySevice->writeLog(var_export($_POST,true));
         $result = $alipaySevice->check($_POST);
+        $alipaySevice->writeLog(var_export($_POST, true));
+        $alipaySevice->writeLog($result);
         return $result;
     }
 
