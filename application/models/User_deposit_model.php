@@ -11,6 +11,7 @@ class User_deposit_model extends CI_Model
 			'amount_carry'  => $params['amount_carry'],
 			'bank_id'        => $params['bank_id'],
 			'state'          => 1,
+			'from'           => $params['from'],
 			'created_at'    => date('Y-m-d H:i:s'),
 			'updated_at'    => date('Y-m-d H:i:s')
 		);
@@ -21,7 +22,7 @@ class User_deposit_model extends CI_Model
 	/**
 	 * 查找一条充值信息
 	 */
-	public function findById($depositId)
+	public function findByDepositId($depositId)
 	{
 		$this->db->select('deposit_id, uid, bank_id, state, amount, created_at');
 		$this->db->from($this->_table);

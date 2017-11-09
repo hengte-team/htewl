@@ -10,7 +10,7 @@ $config = array (
 		'notify_url' => "http://www.loutmall.com/m/callback/notifyPay.html",
 		
 		//同步跳转
-		'return_url' => "http://www.loutmall.com/m/pay/notifyPay.html",
+		'return_url' => "http://www.loutmall.com/m/pay/returnPay.html",
 
 		//编码格式
 		'charset' => "UTF-8",

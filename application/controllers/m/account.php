@@ -7,10 +7,10 @@ class Account extends HT_Controller
 	public function _init()
 	{
 		$this->load->helper(array('common', 'valid'));
-		//$this->load->library('alipay/alipaywap', null, 'alipaywap');
+		$this->load->library('alipay/alipaywap', null, 'alipaywap');
 		$this->load->model('user_model', 'user');
 		$this->load->model('account_log_model', 'account_log');
-		$this->load->model('deposit_model', 'deposit');
+		$this->load->model('user_deposit_model', 'user_deposit');
 		$this->load->model('user_bank_model', 'user_bank');
 	}
 
@@ -40,16 +40,42 @@ class Account extends HT_Controller
 	 */
 	public function depositPost()
 	{
-		$postData = $this->input->post();
-		$this->_validateDeposit($postData);
-		$postData['uid'] = $this->uid;
-		$userAccount = $this->user_account->findByUid($this->uid)->row();
-		$postData['amount_carry'] = $userAccount->amount_carry;
-		$insertId = $this->deposit->insert($postData);
+		$amount = $this->input->post('amount');
+		$bankId = $this->input->post('pay_bank');
+		$uid = 100000;
+        $from = 1;
+        if ($this->input->get('supplier_uid')) { //存在get参数supplier_uid为收款
+            $uid = $this->input->get('supplier_uid');
+            $from = 2; //为2时为收款
+        }
+		if ( $amount <= 0 || !is_numeric($amount) ) {
+			$this->error('m/account/deposit', '', '请输入有效的金额');
+		}
+		if ( $amount >= 1000000 ) {
+			$this->error('m/account/deposit', '', '充值金额超出规定范围');
+		}
+		if (empty($bankId)) {
+			$this->error('m/account/deposit', '', '请选择正确的支付方式');
+		}
+		$result = $this->user->findByUid($uid, 'alias_name,phone,user_type,photo,user_money');
+
+        if ($result->num_rows() <= 0) {
+			$this->error('m/account/deposit', '', '商家账户信息有误');
+		}
+		$user = $result->row(0);
+
+		$dataInsert = array(
+			'uid'             => 100000,
+			'amount'         => $amount,
+			'amount_carry'  => $user->user_money,
+			'bank_id'        => $bankId,
+            'from'            => $from,
+		);
+		$insertId = $this->user_deposit->insert($dataInsert);
 		if ($insertId) {
-			switch ($postData['pay_bank']) {
+			switch ($bankId) {
 				case '1':      //支付宝支付
-	                $alipayParameter = $this->depositAlipayParameter($insertId, $postData['amount']);
+	                $alipayParameter = $this->depositAlipayParameter($insertId, $amount, $user);
 	                $this->alipaywap->callAlipayApi($alipayParameter);
 	                break;
 	            case '201':    //微信支付
@@ -69,18 +95,14 @@ class Account extends HT_Controller
 	/**
 	 * 充值  支付宝
 	 */
-	private function depositAlipayParameter($depositId, $amount)
+	private function depositAlipayParameter($depositId, $amount, $user)
     {
         $parameter = array(
-            'out_trade_no' =>  $depositId,
-            'subject'      =>  '贝竹余额充值',
-            'total_fee'    =>  $amount,
-            'body'         =>  '贝竹余额充值',
-            'notify_url'   =>  base_url('home/paycallback/alipayNotify'),
-            'call_back_url'=>  base_url('home/payment/alipayReturn'),
-            'show_url'     =>  base_url('home/home'),//展示body--url;
-            'pay_method'   =>  1,
-            'defaultbank'  => 'alipay'
+            'out_trade_no'     =>  $depositId,
+            'subject'           =>  '订单消费支付',
+            'total_amount'     =>  $amount,
+            'body'              =>  '消费金额'.$amount.'元',
+			'timeout_express' => '1m'
         );
         return $parameter;
     }
