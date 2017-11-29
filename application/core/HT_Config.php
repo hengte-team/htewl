@@ -3,7 +3,7 @@ class HT_Config extends CI_Config
 {
     public $main_base_url  =  'http://www.htewl.com/';
 	public $images_url     =  'http://images.htewl.com/';
-    public $skins_url      =  'http://htewl.htewl.com/';
+    public $skins_url      =  'http://skins.htewl.com/';
     public $passport_url   =  'http://passport.htewl.com/';
     public $help_url       =  'http://help.htewl.com/';
     public $ucenter_url    =  'http://ucenter.htewl.com/';

@@ -18,8 +18,7 @@
 <meta name="browsermode" content="application">
 <meta name="x5-page-mode" content="app">
 <title><?php echo isset($headTittle) ? $headTittle : '抢红包不跑单';?></title>
-<!-- <base href="<?php echo $this->config->skins_url;?>"/> -->
-<base href="<?php echo base_url();?>"/>
+<base href="<?php echo $this->config->skins_url;?>"/>
 <link type="image/x-icon" rel="shortcut icon" href="htewl/m/images/logo.png"/>
 <?php css('htewl/m', 'amazeui.min', 20161205);?>
 <?php css('htewl/m', 'reset', 20161205);?>
