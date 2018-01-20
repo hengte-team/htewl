@@ -13,6 +13,7 @@ class Callback extends HT_Controller
     public function notifyPay()
     {
         $result = $this->alipaywap->responseAlipayNotify();
+        $response = json_encode($_POST);
         if ($result) {//验证成功
             //商户订单号
             $out_trade_no = $_POST['out_trade_no'];
@@ -40,9 +41,9 @@ class Callback extends HT_Controller
                     return;
                 }
 
-                $$this->db->trans_begin();
+                $this->db->trans_begin();
                 $lastId = $this->account_log->insertAccountLogRecord($uid, $order_id, $account_type, $flow, $trade_type, $amount, $note);
-                $isUpdate = $this->user_deposit->updateState($deposit->deposit_id, $uid, array('state' => 2));
+                $isUpdate = $this->user_deposit->updateState($deposit->deposit_id, $uid, array('state' => 2, 'response' => $response));
                 if ($this->db->trans_status() === FALSE && !$lastId && $isUpdate) {
                     $this->db->trans_rollback();
                 }
