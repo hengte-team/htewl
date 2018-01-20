@@ -22,7 +22,7 @@ $config = array (
 		'gatewayUrl' => "https://openapi.alipay.com/gateway.do",
 
 		//支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
-		'alipay_public_key' => "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwlppxOxppRWA2Nxc+nnvtiyIOHT6yv4JJPDqHFmXHlXjBv7HJDm4jrbWMeoBU6h2Z3pQA+Z/NBQsg5Ymxxdsvw+eMvuG+LOeRgG6Hfyi3ictZs2qMhQo8LFw6cizmylJjbsTAbLMFgSeUTVLKV1ahcgp0IkS1FViUaZMh30uKuOrNTZfOjpm/VRqQVIGzx0rQFqWSt56A6H16hH35ssYEaNrwCN3GTR81y9HDHeA4rfET/aUyTYblCPO9mRt/x/HdQK6Gdc8yFcZHk1Phi8UXT3p1tcWmwWMxvPH3Jqcjp+zImSmruyZkQ6axa+UQOen8VQEEyeO6ohXVKzyW6LOPQIDAQAB",
+		'alipay_public_key' => "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs1Z16VRzs0mNrXvaNosiYeKkNC8Rmzw7cYO/8CqZ7xTYt8CtVvun6s2QljOCJ7lbeRSbqxAqYhZD+g2GPwPRtoC9+t1WS8anQnrZi24+dKQVfurjHHNc/3MzZsliRpVgZ70GNB4qHLohdzw44Vu10LNCgDMSLv9TCicyd2G+YEeaCdlyr2wXfCvXs8Y4H0Axl5GkvWA8NUpd6hyvoOybhixVoaLWX/p1afcu4OQ9PR0ZKQ8DcEaj8cTPhtHZlNzvkbrx4K3Et1nnlG5nP2+eiMMmNdsxUMSuMJt1I6D+ZNuoGsV/0B/R3LPIJIEU0dIiURZDVakFQS5Vt1qNkw+c8wIDAQAB",
 		
 	
 );
